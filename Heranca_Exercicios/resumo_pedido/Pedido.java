@@ -37,7 +37,7 @@ public class Pedido {
         System.out.println("------- RESUMO PEDIDO -------");
         Arrays.stream(itens).forEach(itemPedido -> {
             System.out.println(String.format("Tipo: %s  Titulo: %s  Preco: %.2f  Quant.: %d  Total: %.2f",
-                    itemPedido.getProduto().getClass().getName(),
+                    itemPedido.getProduto().getClass().getSimpleName(),
                     itemPedido.getProduto().getTitulo(),
                     itemPedido.getProduto().obterPrecoLiquido(),
                     itemPedido.getQuantidade(),
