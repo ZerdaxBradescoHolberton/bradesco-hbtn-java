@@ -6,4 +6,9 @@ public class JadLog implements ProvedorFrete {
         double valorFrete = peso > 2000 ? valor * 0.07 : valor * 0.045;
         return new Frete(valorFrete, TipoProvedorFrete.JADLOG);
     }
+
+    @Override
+    public TipoProvedorFrete obterTipoProvedorFrete() {
+        return TipoProvedorFrete.JADLOG;
+    }
 }
