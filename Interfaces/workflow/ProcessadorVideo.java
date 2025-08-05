@@ -9,7 +9,11 @@ public class ProcessadorVideo {
     }
 
     public void processar(Video video) {
+
         canais.stream().forEach(canalNotificacao -> {
+            canalNotificacao.notificar(new Mensagem("", TipoMensagem.LOG));
+            System.out.printf("%s - %s%n",
+                    video.getArquivo(), video.getFormato());
         });
     }
 }
