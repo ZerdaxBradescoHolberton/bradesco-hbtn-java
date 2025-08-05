@@ -1,5 +1,3 @@
 public enum TipoMensagem {
-    AVISO,
-    ERRO,
-    LOG;
+    AVISO, ERRO, LOG;
 }
