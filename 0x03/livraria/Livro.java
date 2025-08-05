@@ -23,14 +23,14 @@ public class Livro {
         this.titulo = titulo;
     }
 
-    public String getAutor() throws AutorInvalidoException {
-        if(autor.split(" ").length < 2) {
-            throw new AutorInvalidoException("Nome de autor invalido");
-        }
+    public String getAutor() {
         return autor;
     }
 
-    public void setAutor(String autor) {
+    public void setAutor(String autor) throws AutorInvalidoException {
+        if(autor.split(" ").length < 2) {
+            throw new AutorInvalidoException("Nome de autor invalido");
+        }
         this.autor = autor;
     }
 
