@@ -1,6 +1,3 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,7 +7,7 @@ import java.util.Scanner;
 
 
 public class FileWritingExercise {
-    private static List<String> fileNames = new ArrayList<>();
+    private static List<String> textLines = new ArrayList<>();
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
 
@@ -21,8 +18,10 @@ public class FileWritingExercise {
 
 
         // implemente o codigo aqui
+        System.out.print("Digite o texto a ser gravado ou \"sair\" para encerrar.");
+        String text = scanner.nextLine();
         if(!"sair".equals(fileName)) {
-            fileNames.add(fileName);
+            textLines.add(fileName);
             main(null);
         }
         createFile(fileName);
@@ -32,7 +31,7 @@ public class FileWritingExercise {
     }
 
     private static void createFile(String fileName) throws Exception {
-        fileNames.forEach(s -> {
+        textLines.forEach(s -> {
             if(!Files.exists(Path.of(s))) {
                 try {
                     Files.createFile(Path.of(s));
