@@ -18,7 +18,7 @@ public class FileReadingExercise {
             BufferedReader br = new BufferedReader(fr)) {
             System.out.printf("Conteúdo do arquivo 'exemplo.txt':%n%n");
             br.lines().forEach(System.out::println);
-            System.out.printf("%nLeitura do arquivo concluída.");
+            System.out.printf("%nLeitura do arquivo concluída.%n");
         }
     }
 }
