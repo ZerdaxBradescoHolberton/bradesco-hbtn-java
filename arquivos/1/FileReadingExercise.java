@@ -13,8 +13,12 @@ public class FileReadingExercise {
 
 
         // efetue a leitura do arquivo
-        System.out.printf("Conteúdo do arquivo 'exemplo.txt':%n%n");
-        Files.readAllLines(Path.of(fileName)).forEach(System.out::println);
-        System.out.printf("%nLeitura do arquivo concluída.");
+        File file = new File(fileName);
+        try (FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr)) {
+            System.out.printf("Conteúdo do arquivo 'exemplo.txt':%n%n");
+            br.lines().forEach(System.out::println);
+            System.out.printf("%nLeitura do arquivo concluída.");
+        }
     }
 }
