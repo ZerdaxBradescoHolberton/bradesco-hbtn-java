@@ -24,7 +24,10 @@ public class ArrayExercicio {
             System.out.printf("Digite o número %s: ", i+1);
             numeros[i] = scanner.nextInt();
         }
-        Integer somaArray = Arrays.stream(numeros).reduce(0, Integer::sum);
+        Integer somaArray = 0; // = Arrays.stream(numeros).reduce(0, Integer::sum);
+        for(Integer n : numeros) {
+            somaArray += n;
+        }
         maiorNumero = Arrays.stream(numeros).max().getAsInt();
 
         // Exibindo os resultados
