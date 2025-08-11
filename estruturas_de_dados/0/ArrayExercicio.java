@@ -28,7 +28,7 @@ public class ArrayExercicio {
         maiorNumero = 0;
         for(Integer n : numeros) {
             somaArray += n;
-            maiorNumero = n > maiorNumero ? n : maiorNumero;
+            if(n > maiorNumero) maiorNumero = n;
         }
 //        maiorNumero = Arrays.stream(numeros).max().getAsInt();
 
