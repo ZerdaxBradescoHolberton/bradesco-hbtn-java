@@ -32,7 +32,7 @@ public class ArrayExercicio {
         Arrays.stream(numeros).forEach(value -> System.out.printf("%s ", value));
         System.out.println("");
         System.out.printf("Soma de todos os números: %s%n", somaArray);
-        System.out.printf("Maior número no array: %s", maiorNumero);
+        System.out.printf("Maior número no array: %s%n", maiorNumero);
 
         // Fechando o scanner
         scanner.close();
