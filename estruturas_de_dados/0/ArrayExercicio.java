@@ -25,10 +25,12 @@ public class ArrayExercicio {
             numeros[i] = scanner.nextInt();
         }
         Integer somaArray = 0; // = Arrays.stream(numeros).reduce(0, Integer::sum);
+        maiorNumero = 0;
         for(Integer n : numeros) {
             somaArray += n;
+            maiorNumero = n > maiorNumero ? n : maiorNumero;
         }
-        maiorNumero = Arrays.stream(numeros).max().getAsInt();
+//        maiorNumero = Arrays.stream(numeros).max().getAsInt();
 
         // Exibindo os resultados
         System.out.printf("%n%nConteúdo do array:%n");
