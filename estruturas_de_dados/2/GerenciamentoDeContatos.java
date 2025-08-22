@@ -15,24 +15,41 @@ public class GerenciamentoDeContatos {
     // Adiciona um novo contato
     public void adicionarContato(String nome, String telefone, String email) {
         // IMPLEMENTE ESTE METODO
+        Contato contato = new Contato();
+        contato.adicionarTelefone(telefone);
+        contato.adicionarEmail(email);
+        contatos.put(nome, contato);
     }
 
 
     // Exibe todos os contatos
     public void exibirContatos() {
         // IMPLEMENTE ESTE METODO
+        contatos.keySet().forEach(s -> {
+            Contato contato = contatos.get(s);
+            System.out.printf("%s - %s - %s%n", s, contato.getEmails(), contato.getTelefones());
+        });
     }
 
 
     // Busca um contato pelo nome
     public void buscarContato(String nome) {
         // IMPLEMENTE ESTE METODO
+        Contato contato = contatos.get(nome);
+        System.out.printf("%s - %s - %s%n", nome, contato.getEmails(), contato.getTelefones());
     }
 
 
     // Remove um contato pelo nome
     public void removerContato(String nome) {
         // IMPLEMENTE ESTE METODO
+        Contato contato = contatos.get(nome);
+        try {
+            System.out.printf("%s - %s - %s%n", nome, contato.getEmails(), contato.getTelefones());
+            contatos.remove(nome);
+        } catch (Exception e) {
+            System.out.println("Tentando remover contato 'João' que não existe");
+        }
     }
 
 
