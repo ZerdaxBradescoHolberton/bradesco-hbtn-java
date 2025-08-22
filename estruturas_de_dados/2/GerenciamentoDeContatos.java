@@ -1,5 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+
+import static java.util.Objects.nonNull;
 
 
 public class GerenciamentoDeContatos {
@@ -18,17 +21,25 @@ public class GerenciamentoDeContatos {
         Contato contato = new Contato();
         contato.adicionarTelefone(telefone);
         contato.adicionarEmail(email);
-        contatos.put(nome, contato);
+        if(nonNull(contatos.get(nome))) System.out.printf("Erro: Contato com nome %s já existe!", nome);
+        else {
+            contatos.put(nome, contato);
+            System.out.printf("Contato %s adicionado com sucesso!%n", nome);
+        }
     }
 
 
     // Exibe todos os contatos
     public void exibirContatos() {
         // IMPLEMENTE ESTE METODO
-        contatos.keySet().forEach(s -> {
+        StringBuilder result = new StringBuilder();
+        for (String s : contatos.keySet()) {
             Contato contato = contatos.get(s);
-            System.out.printf("%s - %s - %s%n", s, contato.getEmails(), contato.getTelefones());
-        });
+            result.append(String.format("Nome: %s%nTelefones: %s%nEmails: %s%n-------------------------------%n",
+                    s, contato.getTelefones(), contato.getEmails()));
+        }
+        result.deleteCharAt(result.length() -1);
+        System.out.print(result);
     }
 
 
@@ -36,7 +47,9 @@ public class GerenciamentoDeContatos {
     public void buscarContato(String nome) {
         // IMPLEMENTE ESTE METODO
         Contato contato = contatos.get(nome);
-        System.out.printf("%s - %s - %s%n", nome, contato.getEmails(), contato.getTelefones());
+        if(nonNull(contato)) System.out.printf("Contato encontrado: %s%nTelefones: %s%nEmails: %s",
+                nome, contato.getTelefones(), contato.getEmails());
+//        System.out.printf("%s - %s - %s%n", nome, contato.getEmails(), contato.getTelefones());
     }
 
 
@@ -44,12 +57,10 @@ public class GerenciamentoDeContatos {
     public void removerContato(String nome) {
         // IMPLEMENTE ESTE METODO
         Contato contato = contatos.get(nome);
-        try {
-            System.out.printf("%s - %s - %s%n", nome, contato.getEmails(), contato.getTelefones());
+        contatos.keySet().stream().filter(s -> s.equals(nome)).findFirst().ifPresentOrElse(s -> {
             contatos.remove(nome);
-        } catch (Exception e) {
-            System.out.println("Tentando remover contato 'João' que não existe");
-        }
+            System.out.printf("Contato %s removido com sucesso!", nome);
+        }, () -> System.out.printf("Contato %s não encontrado.", nome));
     }
 
 
