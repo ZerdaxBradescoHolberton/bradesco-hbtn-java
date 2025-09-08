@@ -59,7 +59,7 @@ public class GerenciamentoDeContatos {
         Contato contato = contatos.get(nome);
         contatos.keySet().stream().filter(s -> s.equals(nome)).findFirst().ifPresentOrElse(s -> {
             contatos.remove(nome);
-            System.out.printf("Contato %s removido com sucesso!      ", nome);
+            System.out.printf("Contato %s removido com sucesso!", nome);
         }, () -> System.out.printf("Contato %s não encontrado.", nome));
     }
 
