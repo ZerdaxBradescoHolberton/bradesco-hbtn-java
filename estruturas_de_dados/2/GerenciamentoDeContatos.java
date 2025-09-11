@@ -19,7 +19,7 @@ public class GerenciamentoDeContatos {
         Contato contato = new Contato();
         contato.adicionarTelefone(telefone);
         contato.adicionarEmail(email);
-        if(nonNull(contatos.get(nome))) System.out.printf("Erro: Contato com nome %s já existe!", nome);
+        if(nonNull(contatos.get(nome))) System.out.printf("Erro: Contato com nome %s já existe!%n", nome);
         else {
             contatos.put(nome, contato);
             System.out.printf("Contato %s adicionado com sucesso!%n", nome);
@@ -36,7 +36,8 @@ public class GerenciamentoDeContatos {
             result.append(String.format("Nome: %s%nTelefones: %s%nEmails: %s%n-------------------------------%n",
                     s, contato.getTelefones(), contato.getEmails()));
         }
-        result.deleteCharAt(result.length() -1);
+//        result.deleteCharAt(result.length() -1);
+//        System.out.println("");
         System.out.print(result);
     }
 
@@ -45,7 +46,7 @@ public class GerenciamentoDeContatos {
     public void buscarContato(String nome) {
         // IMPLEMENTE ESTE METODO
         Contato contato = contatos.get(nome);
-        if(nonNull(contato)) System.out.printf("Contato encontrado: %s%nTelefones: %s%nEmails: %s",
+        if(nonNull(contato)) System.out.printf("Contato encontrado: %s%nTelefones: %s%nEmails: %s%n",
                 nome, contato.getTelefones(), contato.getEmails());
     }
 
@@ -56,8 +57,8 @@ public class GerenciamentoDeContatos {
         Contato contato = contatos.get(nome);
         contatos.keySet().stream().filter(s -> s.equals(nome)).findFirst().ifPresentOrElse(s -> {
             contatos.remove(nome);
-            System.out.printf("Contato %s removido com sucesso!", nome);
-        }, () -> System.out.printf("Contato %s não encontrado.", nome));
+            System.out.printf("Contato %s removido com sucesso!%n", nome);
+        }, () -> System.out.printf("Contato %s não encontrado.%n", nome));
     }
 
 
