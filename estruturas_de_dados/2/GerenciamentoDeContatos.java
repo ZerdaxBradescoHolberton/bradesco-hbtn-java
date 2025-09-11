@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.Map;
-
 import static java.util.Objects.nonNull;
 
 
@@ -48,7 +47,6 @@ public class GerenciamentoDeContatos {
         Contato contato = contatos.get(nome);
         if(nonNull(contato)) System.out.printf("Contato encontrado: %s%nTelefones: %s%nEmails: %s",
                 nome, contato.getTelefones(), contato.getEmails());
-//        System.out.printf("%s - %s - %s%n", nome, contato.getEmails(), contato.getTelefones());
     }
 
 
