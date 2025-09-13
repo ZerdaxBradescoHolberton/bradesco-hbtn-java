@@ -13,7 +13,7 @@ public class Consulta {
     public static Produto obterProdutoMaiorPreco(List<Produto> produtos) {
 //        return produtos.stream().sorted(Comparator.comparing(Produto::getPreco).reversed())
 //                .findFirst().orElse(null);
-        return produtos.stream().max(Comparator.comparingDouble(Produto::getPreco)).get();
+        return produtos.stream().max(Comparator.comparingDouble(Produto::getPreco)).orElse(null);
     }
 
 }
