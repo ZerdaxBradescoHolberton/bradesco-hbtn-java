@@ -11,7 +11,7 @@ public class ListaTodo {
 
     public void adicionarTarefa(Tarefa tarefa) {
         tarefas.stream().filter(tarefa1 -> tarefa1.getIdentificador() == tarefa.getIdentificador())
-                .findAny().ifPresent(tarefa1 -> {throw new RuntimeException(String
+                .findAny().ifPresent(tarefa1 -> {throw new IllegalArgumentException(String
                         .format("Tarefa com identificador %d ja existente na lista", tarefa.getIdentificador()));});
         tarefas.add(tarefa);
     }
