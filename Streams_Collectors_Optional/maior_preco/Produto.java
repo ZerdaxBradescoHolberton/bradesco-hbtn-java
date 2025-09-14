@@ -1,3 +1,7 @@
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 public class Produto {
     private int codigo ;
     private String nome;
@@ -45,6 +49,7 @@ public class Produto {
 
     @Override
     public String toString() {
+        Locale.setDefault(new Locale("pt", "BR"));
         return String.format("[%d] %s %s R$ %.2f", codigo, nome, categoria, preco);
     }
 }
