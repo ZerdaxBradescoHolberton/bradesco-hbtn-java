@@ -14,8 +14,9 @@ public class Consulta {
         return produtos.stream().max(Comparator.comparingDouble(Produto::getPreco)).orElse(null);
     }
 
-    public static Produto obterProdutosPorPrecoMinimo(List<Produto> produtos) {
-        return produtos.stream().min(Comparator.comparingDouble(Produto::getPreco)).orElse(null);
+    public static List<Produto> obterProdutosPorPrecoMinimo(List<Produto> produtos, double precoMinimo) {
+        return produtos.stream().filter(produto -> produto.getPreco() >= precoMinimo)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
 }
