@@ -57,7 +57,7 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        Locale.setDefault(Locale.of("pt", "BR"));
+        Locale.setDefault(new Locale("pt", "BR"));
         return String.format("[%d] %s %s %d R$ %.6f", codigo, nome, cargo, idade, salario);
     }
 }
