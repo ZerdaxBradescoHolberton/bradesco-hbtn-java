@@ -7,16 +7,13 @@ public class Consumidor extends Thread {
 
     @Override
     public void run() {
-        synchronized (this) {
+        try {
             while (true) {
                 System.out.printf("Item retirado: %d%n", fila.retirar());
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                notifyAll();
+                Thread.sleep(500);
             }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }

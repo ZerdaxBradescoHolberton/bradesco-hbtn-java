@@ -17,7 +17,7 @@ public class Fila {
         this.fila = fila;
     }
 
-    public synchronized int adicionar(int item) {
+    public synchronized void adicionar(int item) {
         while(fila.size() > limite) {
             try {
                 wait();
@@ -26,8 +26,8 @@ public class Fila {
             }
         }
         fila.add(item);
+        System.out.printf("Item adicionado%d%n", item);
         notifyAll();
-        return item;
     }
 
     public synchronized int retirar() {

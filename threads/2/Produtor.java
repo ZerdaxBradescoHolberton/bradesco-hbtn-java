@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Produtor extends Thread {
 
     private Fila fila;
@@ -8,11 +10,13 @@ public class Produtor extends Thread {
 
     @Override
     public void run() {
-        synchronized (this) {
+        try {
             while (true) {
-                System.out.printf("Item adicionado: %d%n", fila.adicionar((int) (Math.random() * 101)));
-                notifyAll();
+                fila.adicionar(new Random().nextInt(100) + 1);
+                Thread.sleep(500);
             }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }
