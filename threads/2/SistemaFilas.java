@@ -15,7 +15,7 @@ public class SistemaFilas {
             tp2.start();
             tc1.start();
             tc2.start();
-            while((System.currentTimeMillis() - tIni) < 20000) continue;
+            while((System.currentTimeMillis() - tIni) < 20000L) continue;
             long tFim = System.currentTimeMillis();
             System.out.printf("Tempo de execução %d%n", tFim - tIni);
             System.exit(0);
@@ -23,35 +23,4 @@ public class SistemaFilas {
             throw new RuntimeException(e);
         }
     }
-
-    //    public SistemaFilas() {
-//    }
-//
-
-//    public static void main(String[] var0) {
-//        Fila var1 = new Fila(10);
-//        Produtor var2 = new Produtor(var1);
-//        Produtor var3 = new Produtor(var1);
-//        Consumidor var4 = new Consumidor(var1);
-//        Consumidor var5 = new Consumidor(var1);
-//        var2.start();
-//        var3.start();
-//
-//        try {
-//            Thread.sleep(5000L);
-//            var4.start();
-//            var5.start();
-//            var3.interrupt();
-//            Thread.sleep(5000L);
-//            var2.interrupt();
-//            Thread.sleep(10000L);
-//            System.out.println("Encerrando o sistema...");
-//            System.exit(0);
-//        } catch (InterruptedException var7) {
-//            var7.printStackTrace();
-//        }
-//
-
-//    }
-
 }

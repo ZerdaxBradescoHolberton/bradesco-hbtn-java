@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Produtor extends Thread {
 
     private Fila fila;
@@ -14,9 +12,8 @@ public class Produtor extends Thread {
             while (true) {
                 int item = (int) (Math.random() * 101);
                 fila.adicionar(item);
-                Thread.sleep(500);
             }
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
