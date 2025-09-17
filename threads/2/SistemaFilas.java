@@ -3,13 +3,23 @@ public class SistemaFilas {
     public static void main(String[] args) {
 
         Fila fila = new Fila(10);
+
+        Thread tp1 = new Produtor(fila);
+        Thread tp2 = new Produtor(fila);
+        Thread tc1 = new Consumidor(fila);
+        Thread tc2 = new Consumidor(fila);
+
         try {
-            new Produtor(fila).start();
-            new Produtor(fila).start();
+            tp1.start();
+            tp2.start();
             Thread.sleep(5000);
-            new Consumidor(fila).start();
-            new Consumidor(fila).start();
+            tc1.start();
+            tc2.start();
             Thread.sleep(15000);
+            tp1.interrupt();
+            tp2.interrupt();
+            tc1.interrupt();
+            tc2.interrupt();
             System.exit(0);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
