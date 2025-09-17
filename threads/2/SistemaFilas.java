@@ -10,15 +10,18 @@ public class SistemaFilas {
         Thread tc2 = new Consumidor(fila);
 
         try {
+            long tIni = System.currentTimeMillis();
             tp1.start();
             tp2.start();
             tc1.start();
             tc2.start();
-            tp1.interrupt();
-            tp2.interrupt();
-            tc1.interrupt();
-            tc2.interrupt();
-            Thread.sleep(20000L);
+//            tp1.interrupt();
+//            tp2.interrupt();
+//            tc1.interrupt();
+//            tc2.interrupt();
+            Thread.sleep(19999L);
+            long tFim = System.currentTimeMillis();
+            System.out.printf("Tempo de execução %d%n", tFim - tIni);
             System.exit(0);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
