@@ -15,15 +15,11 @@ public class SistemaFilas {
             tp2.start();
             tc1.start();
             tc2.start();
-//            tp1.interrupt();
-//            tp2.interrupt();
-//            tc1.interrupt();
-//            tc2.interrupt();
-            Thread.sleep(19999L);
+            while((System.currentTimeMillis() - tIni) < 20000) continue;
             long tFim = System.currentTimeMillis();
             System.out.printf("Tempo de execução %d%n", tFim - tIni);
             System.exit(0);
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
