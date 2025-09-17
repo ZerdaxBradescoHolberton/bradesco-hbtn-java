@@ -5,7 +5,15 @@ public class Principal {
     private static Thread[] threads = new Thread[2];
     public static void main(String[] args) {
         contador = new Contador();
-        executaThreads();
+        new ThreadContador(contador).start();
+        new ThreadContador(contador).start();
+        while(Thread.activeCount() > 2) {
+//            System.out.println(Thread.activeCount());
+//            System.out.println(Thread.activeCount());
+            continue;
+        }
+        System.out.printf("Valor final do contador: %d%n", contador.getContagem());
+//        executaThreads();
     }
 
     private static void executaThreads() {
@@ -24,7 +32,7 @@ public class Principal {
                 }
             }
         }
-        
+
         System.out.printf("Valor final do contador: %d%n", contador.getContagem());
 
     }
