@@ -12,14 +12,13 @@ public class SistemaFilas {
         try {
             tp1.start();
             tp2.start();
-            Thread.sleep(5000);
             tc1.start();
             tc2.start();
-            Thread.sleep(15000);
             tp1.interrupt();
             tp2.interrupt();
             tc1.interrupt();
             tc2.interrupt();
+            Thread.sleep(20000L);
             System.exit(0);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
