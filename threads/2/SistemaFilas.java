@@ -15,7 +15,8 @@ public class SistemaFilas {
             tp2.start();
             tc1.start();
             tc2.start();
-            while((System.currentTimeMillis() - tIni) < 20000L) continue;
+            Thread.sleep(20000);
+//            while((System.currentTimeMillis() - tIni) < 20000L) continue;
             long tFim = System.currentTimeMillis();
             System.out.printf("Tempo de execução %d%n", tFim - tIni);
             System.exit(0);
