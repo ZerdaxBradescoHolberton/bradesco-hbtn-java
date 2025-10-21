@@ -75,7 +75,7 @@ public class SistemaDeGestaoDePedidos {
             logger.error("Erro ao cancelar: Pedido ID {} não encontrado.", id);
         }
         else if(pedido.isPago()) {
-            logger.error("Não é possível cancelar o pedido ID {} pois já foi pago.", id);
+            logger.warn("Não é possível cancelar o pedido ID {} pois já foi pago.", id);
         } else {
             logger.info("Pedido ID {} cancelado com sucesso!", id);
             pedidos.remove(id);
