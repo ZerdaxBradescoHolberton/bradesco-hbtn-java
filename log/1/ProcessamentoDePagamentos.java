@@ -20,13 +20,13 @@ public class ProcessamentoDePagamentos {
             logger.info("Iniciando o processamento do pagamento {}", n);
             switch (level) {
                 case INFO:
-                    logger.atLevel(level).log("Pagamento {} processado com sucesso.", n);
+                    logger.info("Pagamento {} processado com sucesso.", n);
                     break;
                 case WARN:
-                    logger.atLevel(level).log("Pagamento {} está pendente. Aguardando confirmação.", n);
+                    logger.warn("Pagamento {} está pendente. Aguardando confirmação.", n);
                     break;
                 case ERROR:
-                    logger.atLevel(level).log("Erro ao processar o pagamento {}: Falha na transação.", n);
+                    logger.error("Erro ao processar o pagamento {}: Falha na transação.", n);
                     break;
             }
             try {
